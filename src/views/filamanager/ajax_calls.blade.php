@@ -1,18 +1,18 @@
 <?php
 
-$config = include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/config/config.php';
+$config = include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/config/config.php';
 
-require_once base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/include/utils.php';
+require_once base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/include/utils.php';
 
 if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager") {
     response(cbLang('filemanager.forbidden').AddErrorLocation())->send();
     exit;
 }
-$languages = include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/lang/languages.php';
+$languages = include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/lang/languages.php';
 
-if (isset($_SESSION['RF']['language']) && file_exists(base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/lang/' . basename($_SESSION['RF']['language']) . '.php')) {
+if (isset($_SESSION['RF']['language']) && file_exists(base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/lang/' . basename($_SESSION['RF']['language']) . '.php')) {
     if (array_key_exists($_SESSION['RF']['language'], $languages)) {
-        include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/lang/' . basename($_SESSION['RF']['language']) . '.php';
+        include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/lang/' . basename($_SESSION['RF']['language']) . '.php';
     } else {
         response(cbLang('filemanager.Lang_Not_Found').AddErrorLocation())->send();
         exit;
@@ -512,12 +512,12 @@ if (isset($_GET['action'])) {
 
             break;
         case 'get_lang':
-            if (! file_exists(base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/lang/languages.php')) {
+            if (! file_exists(base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/lang/languages.php')) {
                 response(cbLang('filemanager.Lang_Not_Found').AddErrorLocation())->send();
                 exit;
             }
 
-            $languages = include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/lang/languages.php';
+            $languages = include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/lang/languages.php';
             if (! isset($languages) || ! is_array($languages)) {
                 response(cbLang('filemanager.Lang_Not_Found').AddErrorLocation())->send();
                 exit;
@@ -539,7 +539,7 @@ if (isset($_GET['action'])) {
             $choosen_lang = (!empty($_POST['choosen_lang']))? $_POST['choosen_lang']:"en_EN";
 
             if (array_key_exists($choosen_lang, $languages)) {
-                if (! file_exists(base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/lang/' . $choosen_lang . '.php')) {
+                if (! file_exists(base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/lang/' . $choosen_lang . '.php')) {
                     response(cbLang('filemanager.Lang_Not_Found').AddErrorLocation())->send();
                     exit;
                 } else {

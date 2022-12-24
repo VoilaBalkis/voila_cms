@@ -2,7 +2,7 @@
 $time = time();
 ini_set('display_errors', '0');
 
-$config = include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/config/config.php';
+$config = include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/config/config.php';
 
 if (USE_ACCESS_KEYS == true) {
     if (!isset($_GET['akey'], $config['access_keys']) || empty($config['access_keys'])) {
@@ -19,9 +19,9 @@ if (USE_ACCESS_KEYS == true) {
 $_SESSION['RF']['verify'] = 'RESPONSIVEfilemanager';
 
 if (isset($_POST['submit'])) {
-    // include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/upload.php';
+    // include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/upload.php';
 } else {
-    $available_languages = include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/lang/languages.php';
+    $available_languages = include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/lang/languages.php';
 
     [$preferred_language] = array_values(array_filter([isset($_GET['lang']) ? $_GET['lang'] : null, isset($_SESSION['RF']['language']) ? $_SESSION['RF']['language'] : null, $config['default_language']]));
 
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
     }
 }
 
-$utlis = include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/include/utils.php';
+$utlis = include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/include/utils.php';
 $subdir_path = '';
 
 if (isset($_GET['fldr']) && !empty($_GET['fldr'])) {
@@ -1257,7 +1257,7 @@ if (!empty($bc)) {
         $no_thumb           = false;
         if ($src_thumb == "") {
             $no_thumb = true;
-            // if (file_exists(base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/img/' . $config['icon_theme'] . '/' . $file_array['extension'] . ".jpg")) {
+            // if (file_exists(base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/img/' . $config['icon_theme'] . '/' . $file_array['extension'] . ".jpg")) {
                 if (file_exists('vendor/filemanager/img/' . $config['icon_theme'] . '/' . $file_array['extension'] . ".jpg")) {
                 $src_thumb = 'vendor/filemanager/img/' . $config['icon_theme'] . '/' . $file_array['extension'] . ".jpg";
             } else {

@@ -348,9 +348,9 @@ function ftp_con($config)
 {
      if (isset($config['ftp_host']) && $config['ftp_host']) {
           // *** Include the class
-          include(base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/include/FtpClient.php');
-          include(base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/include/FtpException.php');
-          include(base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/include/FtpWrapper.php');
+          include(base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/include/FtpClient.php');
+          include(base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/include/FtpException.php');
+          include(base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/include/FtpWrapper.php');
 
           $ftp = new \FtpClient\FtpClient();
           try {
@@ -449,7 +449,7 @@ function makeSize($size)
  */
 function folder_info($path, $count_hidden = true)
 {
-     $config = include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/config/config.php';
+     $config = include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/config/config.php';
      $total_size = 0;
      $files = scandir($path);
      $cleanPath = rtrim($path, '/') . '/';
@@ -484,7 +484,7 @@ function folder_info($path, $count_hidden = true)
  */
 function filescount($path, $count_hidden = true)
 {
-     $config = include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/config/config.php';
+     $config = include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/config/config.php';
      $total_count = 0;
      $files = scandir($path);
      $cleanPath = rtrim($path, '/') . '/';
@@ -514,7 +514,7 @@ function filescount($path, $count_hidden = true)
  */
 function checkresultingsize($sizeAdded)
 {
-     $config = include base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/config/config.php';
+     $config = include base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/config/config.php';
 
      if ($config['MaxSizeTotal'] !== false && is_int($config['MaxSizeTotal'])) {
           list($sizeCurrentFolder, $fileCurrentNum, $foldersCurrentCount) = folder_info($config['current_path'], false);

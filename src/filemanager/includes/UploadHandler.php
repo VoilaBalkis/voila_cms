@@ -1592,7 +1592,7 @@ class UploadHandler
 
         if ($is_img) {
             if (isset($this->options['config']['image_watermark']) && $this->options['config']['image_watermark']) {
-                require_once(base_path() . '/vendor/voila_crocodicstudio/crudbooster/src/filemanager/includes/include/php_image_magician.php');
+                require_once(base_path() . '/vendor/voila_cms/crudbooster/src/filemanager/includes/include/php_image_magician.php');
                 $magicianObj = new imageLib($targetFile);
                 $magicianObj->addWatermark($this->options['config']['image_watermark'], $this->options['config']['image_watermark_position'],  $this->options['config']['image_watermark_padding']);
 
